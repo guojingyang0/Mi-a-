@@ -1,0 +1,5 @@
+{
+  "name": "幻塔小助手 (ToF Assistant)",
+  "description": "专为《幻塔》打造的深度画质优化工具。利用AI智能调整Engine.ini，解锁120帧、优化卡顿，定制专属游戏体验。",
+  "requestFramePermissions": []
+}

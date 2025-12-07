@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>幻塔小助手 // ToF Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Rajdhani', 'sans-serif'],
+              display: ['Orbitron', 'sans-serif'],
+            },
+            colors: {
+              hotta: {
+                base: 'var(--color-base)',
+                surface: 'var(--color-surface)',
+                'surface-alt': 'var(--color-surface-alt)',
+                'text-main': 'var(--color-text-main)',
+                'text-muted': 'var(--color-text-muted)',
+                border: 'var(--color-border)',
+                accent: 'var(--color-accent)',
+                highlight: 'var(--color-highlight)',
+                danger: '#f43f5e'
+              }
+            },
+            animation: {
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        /* LIGHT MODE (Hykros/Clean Style) */
+        --color-base: #f8fafc;      /* slate-50 */
+        --color-surface: #ffffff;   /* white */
+        --color-surface-alt: #f1f5f9; /* slate-100 */
+        --color-text-main: #0f172a; /* slate-900 */
+        --color-text-muted: #64748b; /* slate-500 */
+        --color-border: #e2e8f0;    /* slate-200 */
+        --color-accent: #06b6d4;    /* cyan-500 (ToF UI Blue) */
+        --color-highlight: #f59e0b; /* amber-500 (SSR Gold) */
+      }
+
+      .dark {
+        /* DARK MODE (Mirroria/Cyberpunk Style) */
+        --color-base: #03060a;      /* Very dark blue/black */
+        --color-surface: #0f1520;   /* Dark slate */
+        --color-surface-alt: #162032; /* Slightly lighter slate */
+        --color-text-main: #e2e8f0; /* slate-200 */
+        --color-text-muted: #94a3b8; /* slate-400 */
+        --color-border: #1e293b;    /* slate-800 */
+        --color-accent: #22d3ee;    /* cyan-400 (Neon Cyan) */
+        --color-highlight: #fbbf24; /* amber-400 (Neon Gold) */
+      }
+
+      body {
+        background-color: var(--color-base);
+        color: var(--color-text-main);
+        transition: background-color 0.3s, color 0.3s;
+      }
+      
+      /* Background Patterns - Hexagonal/Tech feel */
+      body.dark {
+        background-image: 
+          radial-gradient(circle at 15% 50%, rgba(6, 182, 212, 0.08) 0%, transparent 25%), 
+          radial-gradient(circle at 85% 30%, rgba(251, 191, 36, 0.05) 0%, transparent 25%),
+          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+      }
+      body:not(.dark) {
+        background-image: 
+          radial-gradient(circle at 10% 10%, rgba(6, 182, 212, 0.05) 0%, transparent 40%),
+          radial-gradient(circle at 90% 90%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--color-base); 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--color-border); 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--color-accent); 
+      }
+      
+      /* Utility for glassmorphism */
+      .glass {
+        background: rgba(var(--color-surface), 0.7);
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
